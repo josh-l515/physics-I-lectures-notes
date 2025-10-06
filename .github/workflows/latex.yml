@@ -5,36 +5,36 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: write  # Necesario para hacer push del PDF
+  contents: write  # 👈 Necesario para hacer commit/push del PDF generado
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Descargar el código del repositorio
+      # 1️⃣ Descargar el contenido del repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Crear carpeta de salida (por si no existe)
+      # 2️⃣ Crear carpeta de salida para latexmk
       - name: Create build directory
         run: mkdir -p build/sections
 
-      # 3️⃣ Compilar el documento con XeLaTeX usando tu .latexmkrc
+      # 3️⃣ Compilar el proyecto LaTeX usando latexmk + pdflatex
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
-          latexmk_use_xelatex: true   # 👈 Usa XeLaTeX (soporta Unicode)
-          args: "-interaction=nonstopmode -shell-escape"
+          compiler: latexmk
+          args: "-pdf -interaction=nonstopmode -shell-escape"
 
-      # 4️⃣ Mover el PDF compilado a la carpeta docs/
+      # 4️⃣ Mover el PDF compilado a la carpeta docs/ (para GitHub Pages)
       - name: Move PDF to docs/
         run: |
           mkdir -p docs
-          cp build/main.pdf docs/main.pdf
+          cp build/main.pdf docs/
 
-      # 5️⃣ Commit y push automático del PDF generado
+      # 5️⃣ Hacer commit y push automático del PDF generado
       - name: Commit and push PDF
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
