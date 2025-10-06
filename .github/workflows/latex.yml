@@ -26,7 +26,8 @@ jobs:
         with:
           root_file: main.tex
           compiler: latexmk
-          args: "-pdf -interaction=nonstopmode -shell-escape"
+          args: "-xelatex -interaction=nonstopmode -shell-escape"
+
 
       # 4️⃣ Mover el PDF compilado a docs/
       - name: Move PDF to docs/
