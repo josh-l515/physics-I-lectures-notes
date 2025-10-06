@@ -1,0 +1,7 @@
+*.pdf
+*.aux
+*.log
+*.fls
+*.fdb_latexmk
+build/
+!docs/main.pdf
