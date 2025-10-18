@@ -1,0 +1,55 @@
+
+
+\section{Análisis dimensional - cristian}
+\label{sec:analisis_dimensional}
+
+\subsection{Conceptos básicos}
+El \emph{análisis dimensional} es una herramienta que explora las relaciones entre las magnitudes físicas mediante las dimensiones fundamentales (por ejemplo, longitud $L$, masa $M$ y tiempo $T$). Dos ideas clave son:
+\begin{itemize}
+  \item \textbf{Homogeneidad dimensional}: todas las sumas y ecuaciones físicas deben tener las mismas dimensiones en cada término.
+  \item \textbf{No dependencia de unidades}: las relaciones adimensionales son válidas independientemente del sistema de unidades.
+\end{itemize}
+
+\subsection{Notación dimensional}
+Si una magnitud $X$ tiene dimensiones de masa, longitud y tiempo, se escribe
+\[
+[X] = M^{\alpha} L^{\beta} T^{\gamma},
+\]
+donde $(\alpha,\beta,\gamma)$ son los exponentes dimensionales de $X$.
+
+\subsection{Teorema de Buckingham $\Pi$ (forma breve)}
+Si una relación física involucra $n$ variables y $k$ dimensiones fundamentales independientes, entonces la relación puede reescribirse en términos de $p=n-k$ números adimensionales independientes $\Pi_1,\dots,\Pi_p$:
+\[
+f(x_1,x_2,\dots,x_n)=0 \quad\Longrightarrow\quad F(\Pi_1,\dots,\Pi_p)=0.
+\]
+Cada $\Pi$ es un producto de potencias de las variables originales: $\Pi = x_1^{a_1}x_2^{a_2}\cdots x_n^{a_n}$.
+
+\subsection{Procedimiento práctico (pasos)}
+\begin{enumerate}
+  \item Escribe la lista completa de variables relevantes (incluye constantes físicas si aplican).
+  \item Anota la dimensión de cada variable.
+  \item Determina $k$ (número de dimensiones fundamentales necesarias).
+  \item Elige $k$ variables repetidas (que sean dimensionalmente independientes).
+  \item Construye los grupos $\Pi$ usando potencias desconocidas y resuelve el sistema lineal para los exponentes imponiendo homogeneidad dimensional.
+  \item Interpreta físicamente los $\Pi$ (p. ej. números adimensionales conocidos).
+\end{enumerate}
+
+\subsection{Ejemplo 1: periodo de un péndulo simple}
+Supongamos que el periodo $T$ depende de la longitud $L$ y la aceleración gravitacional $g$. Variables: $T,\ L,\ g$ con dimensiones
+\[
+[T]=T,\quad [L]=L,\quad [g]=LT^{-2}.
+\]
+Número de variables $n=3$, dimensiones fundamentales $k=2$ (L y T), por tanto $p=1$ grupo adimensional.
+
+Buscamos $\Pi = T^a L^b g^c$ adimensional. Exigimos:
+\[
+[T]^a [L]^b [g]^c = T^{a} L^{b} (L T^{-2})^{c} = M^{0} L^{b+c} T^{a-2c} = 1.
+\]
+Igualando exponentes:
+\[
+\begin{cases}
+b+c=0,\\
+a-2c=0.
+\end{cases}
+\]
+Toman
