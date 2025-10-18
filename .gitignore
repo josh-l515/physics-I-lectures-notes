@@ -76,4 +76,4 @@ build/
 *.bak
 *.backup
 *.tmp
-*.temp:
+*.temp
