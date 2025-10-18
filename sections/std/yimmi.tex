@@ -1,55 +1,5 @@
-\section{Análisis dimensional}
-\label{sec:analisis-dimensional}
+\section{Analisis dimensional - YIMMI}
 
-El \emph{análisis dimensional} es una herramienta que permite estudiar las dependencias entre magnitudes físicas sin resolver completamente las ecuaciones diferenciales del problema. Se basa en que sólo tienen sentido físico las ecuaciones homogéneas en dimensiones: ambos lados de una igualdad deben tener las mismas unidades.
-
-\subsection{Reglas básicas}
-\begin{itemize}
-  \item Cada magnitud física se expresa en términos de dimensiones fundamentales (por ejemplo: masa $M$, longitud $L$, tiempo $T$, corriente $I$, temperatura $\Theta$, cantidad de sustancia $N$, intensidad luminosa $J$).
-  \item Se puede representar la dimensión de una magnitud $X$ mediante una tupla exponencial: \(\dim X = M^{a} L^{b} T^{c} \cdots\).
-  \item Sólo pueden sumarse o restarse magnitudes con la misma dimensión.
-  \item Las ecuaciones físicas deben ser homogéneas dimensionalmente.
-\end{itemize}
-
-\subsection{Comprobación dimensional}
-Para verificar una fórmula, se sustituye cada magnitud por su dimensión y se comprueba la igualdad. Por ejemplo, si se propone
-\[
-t = C \frac{L}{v},
-\]
-donde \(t\) es tiempo, \(L\) longitud y \(v\) velocidad, entonces las dimensiones de la derecha son
-\[
-\frac{\dim L}{\dim v} = \frac{L}{L\,T^{-1}} = T,
-\]
-por lo que la expresión es dimensionalmente consistente (y \(C\) debe ser adimensional).
-
-\subsection{Teorema de Buckingham $\pi$}
-Sea un problema que involucra \(n\) magnitudes físicas que dependen entre sí. Si las dimensiones fundamentales independientes que aparecen son \(k\), entonces es posible construir \(p=n-k\) \emph{números adimensionales} independientes \(\pi_1,\dots,\pi_p\) tales que la relación entre las magnitudes puede escribirse como
-\[
-f(\pi_1,\pi_2,\dots,\pi_p)=0.
-\]
-Estos números adimensionales (o parámetros $\pi$) se construyen combinando las magnitudes originales mediante productos con exponentes reales de manera que las dimensiones se cancelen.
-
-\subsection{Ejemplo: periodo de un péndulo simple}
-Supongamos que el periodo \(T\) de un péndulo simple depende de la longitud \(L\), la masa \(m\) y la aceleración gravitatoria \(g\). Las dimensiones son
-\[
-\dim T = T,\quad \dim L = L,\quad \dim m = M,\quad \dim g = LT^{-2}.
-\]
-Aquí \(n=4\) magnitudes y las dimensiones fundamentales presentes son \(M,L,T\) por lo que \(k=3\) y \(p=n-k=1\). Buscamos un solo $\pi$ adimensional:
-\[
-\pi = T^a L^b m^c g^d.
-\]
-Exigimos cancelación dimensional:
-\[
-T^{a} L^{b} M^{c} (L T^{-2})^{d} = M^{c} L^{b+d} T^{a-2d} \sim M^{0} L^{0} T^{0}.
-\]
-Igualando exponentes:
-\[
-\begin{cases}
-c = 0,\\
-b + d = 0,\\
-a - 2d = 0.
-\end{cases}
-\]
-De aquí \(c=0\), \(b=-d\), \(a=2d\). Tomando \(d=1\) (elección conveniente) obtenemos \(a=2,\ b=-1,\ c=0\), y
-\[
-\pi = \frac{T^{2} g}{L}.
+\begin{equation}
+    x=y^2
+\end{equation}
