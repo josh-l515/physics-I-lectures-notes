@@ -5,42 +5,38 @@ on:
     branches: [ main ]
 
 permissions:
-  contents: write  # 👈 Necesario para hacer commit/push del PDF generado
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ Descargar el contenido del repositorio
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # 2️⃣ Crear carpeta de salida para latexmk
-      - name: Create build directory
-        run: mkdir -p build/sections
+      - name: Mirror directory structure into build/
+        run: |
+          find . -type d ! -path './.git*' ! -path './build*' -exec bash -c 'mkdir -p build/"${0#./}"' {} \;
 
-      # 3️⃣ Compilar el proyecto LaTeX usando latexmk + pdflatex
+
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v3
         with:
           root_file: main.tex
           compiler: latexmk
-          args: "-pdf -interaction=nonstopmode -shell-escape"
+          args: "-xelatex -interaction=nonstopmode -shell-escape"
 
-      # 4️⃣ Mover el PDF compilado a la carpeta docs/ (para GitHub Pages)
+
       - name: Move PDF to docs/
         run: |
           mkdir -p docs
           cp build/main.pdf docs/
 
-      # 5️⃣ Hacer commit y push automático del PDF generado
       - name: Commit and push PDF
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f docs/main.pdf
+          git add docs/main.pdf
           git commit -m "Update compiled PDF [skip ci]" || echo "No changes to commit"
-          git push https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git HEAD:main
+          git push
