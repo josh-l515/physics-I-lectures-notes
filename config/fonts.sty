@@ -1,0 +1,21 @@
+\ProvidesPackage{fonts}[2025/11/02 Fuentes del documento]
+
+\RequirePackage{fontspec}
+\RequirePackage{unicode-math}
+% Familia principal (texto normal)
+\setmainfont{TeX Gyre Termes}
+
+% Sans serif (títulos, secciones)
+\setsansfont{TeX Gyre Heros}
+
+% Monoespaciada (código)
+\setmonofont{TeX Gyre Cursor}
+
+%% --- Fuente matemática ---
+\setmathfont{STIX Two Math}
+% \setmathfont{STIX Two Math}[Scale=MatchLowercase]
+
+
+% --- Macro para portadas o títulos ---
+\newcommand{\docmainfont}{\rmfamily\normalfont\selectfont}
+

@@ -1,0 +1,330 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definir info del laboratorio
+%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\renewcommand{\labnumber}{LABORATORIO N° 02 - \LaTeX}
+\renewcommand{\labtitle}{PRINCIPIO DE MÍNIMOS CUADRADOS - AJUSTE LINEAL}
+\renewcommand{\labauthor}{Apellidos y Nombres}
+\renewcommand{\labcourse}{\textbf{\textit{Curso:}} Física I - Unidad 1}
+\renewcommand{\labcodigo}{\textbf{\textit{Código:}} 182740}
+\renewcommand{\labinstitution}{Universidad Nacional Micaela Bastidas de Apurimac}
+\renewcommand{\labdate}{03 de Noviembre del 2025}
+\renewcommand{\labdocente}{\textbf{DOCENTE:} HUALLPA AIMITUMA Josué David}
+
+\labcover
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicio del Documento
+%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{OBJETIVOS}
+\begin{enumerate}
+    \item Determinar experimentalmente el valor de la aceleración de la gravedad local mediante un péndulo simple.
+    \item Aplicar el método de mínimos cuadrados para ajustar datos experimentales.
+    \item Analizar las fuentes de incertidumbre en la medición del período.
+\end{enumerate}
+\section{FUNDAMENTO TEÓRICO}
+Para un conjunto de datos $(x_i, y_i)$ con $i=1,\dots,N$ y suponiendo un modelo lineal
+\begin{equation*}
+y_i = a + b x_i,
+\end{equation*}
+los parámetros $a$ y $b$ se pueden determinar de forma **independiente** mediante:
+
+\begin{equation*}
+b = \frac{N \sum_i x_i y_i - \sum_i x_i \sum_i y_i}{N \sum_i x_i^2 - (\sum_i x_i)^2}, \quad
+a = \frac{\sum_i y_i - b \sum_i x_i}{N}.
+\end{equation*}
+
+Las incertidumbres asociadas se calculan como:
+
+\begin{equation*}
+\sigma_b = \sqrt{\frac{\sum_i (y_i - a - b x_i)^2}{N \sum_i x_i^2 - (\sum_i x_i)^2}}, \quad
+\sigma_a = \sqrt{\frac{\sum_i x_i^2 \sum_i (y_i - a - b x_i)^2}{N \left(N \sum_i x_i^2 - (\sum_i x_i)^2\right)}}.
+\end{equation*}
+
+\medskip
+\textbf{Linealización de ecuaciones no lineales:} Para relaciones físicas no lineales, como la ecuación de Torricelli
+\begin{equation*}
+v = \sqrt{2 g h},
+\end{equation*}
+se puede linealizar tomando logaritmos:
+
+\begin{equation*}
+\ln v = \frac{1}{2} \ln h + \frac{1}{2} \ln (2 g),
+\end{equation*}
+
+lo que permite aplicar un ajuste lineal de $\ln v$ vs $\ln h$ para determinar la pendiente y la ordenada de manera directa, y a partir de ellas calcular la constante de la gravedad $g$.
+\section{PRÁCTICA 01: PÉNDULO SIMPLE Y AJUSTE LINEAL}
+
+\subsection{Objetivos Específicos}
+\begin{enumerate}
+    \item Medir el período de oscilación de un péndulo simple para diferentes longitudes.
+    \item Determinar $g$ mediante ajuste lineal y propagación de incertidumbres.
+    \item Analizar la relación funcional $T(l)$ y linealizar los datos mediante logaritmos.
+\end{enumerate}
+
+\subsection{Fundamento Teórico}
+El período de un péndulo simple para pequeñas amplitudes está dado por:
+\begin{equation}
+T = 2 \pi \sqrt{\frac{l}{g}}
+\end{equation}
+Linealizando mediante logaritmos:
+\begin{equation}
+\log T = \log(2 \pi) + \frac{1}{2} \log l - \frac{1}{2} \log g
+\end{equation}
+donde la pendiente de la recta permite calcular $g$ experimentalmente:
+\begin{equation}
+g = \left(\frac{2 \pi}{10^{b}}\right)^2
+\end{equation}
+
+\subsection{Materiales}
+\begin{itemize}
+    \item Péndulo simple
+    \item Cronómetro (centésimas de segundo)
+    \item Regla métrica (milímetros)
+    \item Soporte universal
+    \item Barrilla de aluminio y mordaza
+\end{itemize}
+
+\subsection{Procedimiento Experimental}
+\begin{enumerate}
+    \item Arme el péndulo simple y mida la longitud $L$ desde el punto de suspensión hasta el centro de masa.
+    \item Realice múltiples oscilaciones (10 oscilaciones) y mida el tiempo total $t$.
+    \item Calcule el período: $T = t / 10$.
+    \item Repita para distintas longitudes $L$ del péndulo.
+\end{enumerate}
+
+\subsection{Recolección de Datos}
+    \begin{table}[H]
+        \centering
+        \caption{Promedio del Periodo del péndulo para cada medida de longitud de la cuerda}
+        \label{tabla:2}
+        \begin{tabular}{{lcccc|>{\columncolor[gray]{0.9}}c>{\columncolor[gray]{0.9}}r}}
+            \hline
+            N$^\circ$ & L (m)& $\delta$ L(m) & t (s) & $\delta t$ (s) &  $T(s)$& $\delta(T)$ \\
+            \hline
+            1 & 1.00 & & & & &\\
+            2 & 0.95 & & &&&\\
+            3 & 0.90 & & &&&\\
+            4 & 0.85 & & &&&\\
+            5 & 0.80 & & &&&\\
+            6 & 0.75 & & &&&\\
+            7 & 0.70 & & &&&\\
+            8 & 0.65 & & &&&\\
+            9 & 0.60 & & &&&\\
+            10 & 0.55 & & &&&\\
+            11 & 0.50 & & &&&\\
+            \hline
+        \end{tabular}
+    \end{table}
+
+\subsection{Análisis de Datos}
+\begin{enumerate}
+    \item Realice la linealización de los datos con logaritmos y construya la tabla de sumatorias para mínimos cuadrados:
+
+        \begin{table*}[tbp]
+        	\centering
+        	\caption{Procesamiento de datos experimentales EXPERIENCIA A.}
+        	\label{tabla:analisis_graficos_exp_a}
+        	\begin{tabular}{lcccc|>{\columncolor[gray]{0.9}}r}
+        		\hline
+        		 & $x$ & $y$ & $x*y$ & $x^2$ & $(y_i-b-ax_i)^2$\\
+        		$N$ & $\log(l)$ & $\log{T}$ & $\log{l}\log{T}$ & $\log{l}^2$ & $(\log{T}-b-a\log{l})^2$\\
+        		\hline
+        		1 &  & & & & \\
+        		2 &  & & & & \\
+        		3 &  & & & & \\
+        		4 &  & & & & \\
+        		5 &  & & & & \\
+        		6 &  & & & & \\
+        		7 &  & & & & \\
+        		8 &  & & & & \\
+        	    9 &  & & & & \\
+        		10 & & & & & \\
+        		11 & & & & & \\ \hline
+        		$\sum$ & & & & & \\
+        		\hline
+        	\end{tabular}
+        \end{table*}
+
+    \item Determine la pendiente $a$, la ordenada $b$, y calcule $g$ junto a su incertidumbre.
+    \item Grafique $T$ vs $L$ y superponga la curva ajustada.
+\end{enumerate}
+
+
+\subsection{Preguntas de Análisis}
+\begin{enumerate}
+    \item ¿Cuál es el valor experimental de $g$ y cómo se compara con el teórico?
+    \item ¿Qué fuentes de error afectan más los resultados?
+    \item ¿Por qué es útil linealizar la ecuación del péndulo para aplicar mínimos cuadrados?
+\end{enumerate}
+
+\section{PRÁCTICA 02: ECUACIÓN DE TORRICELLI Y DETERMINACIÓN DE $g$ CON FOTOPUERTA}
+
+\subsection{Objetivos Específicos}
+\begin{enumerate}
+    \item Medir la velocidad de salida de un chorro de agua desde distintas alturas del fluido usando una fotopuerta.
+    \item Determinar la aceleración de la gravedad $g$ mediante un ajuste lineal de mínimos cuadrados.
+    \item Aplicar la linealización logarítmica de la ecuación de Torricelli para simplificar el análisis.
+\end{enumerate}
+
+\subsection{Fundamento Teórico}
+
+La ecuación de Torricelli establece:
+
+\begin{equation*}
+v = \sqrt{2 g h}
+\end{equation*}
+
+donde $v$ es la velocidad de salida del chorro y $h$ la altura del fluido sobre el orificio.  
+
+Para linealizar esta relación y usar mínimos cuadrados, aplicamos logaritmos:
+
+\begin{equation*}
+\ln v = \frac{1}{2} \ln(2 g) + \frac{1}{2} \ln h
+\end{equation*}
+
+De esta forma, si definimos:
+
+\begin{equation*}
+Y = \ln v, \quad X = \ln h
+\end{equation*}
+
+obtenemos una ecuación de recta:
+
+\begin{equation*}
+Y = a + b X
+\end{equation*}
+
+donde:
+
+\begin{equation*}
+b = \frac{1}{2}, \quad a = \frac{1}{2} \ln(2 g)
+\end{equation*}
+
+Luego, a partir de la pendiente $a$ del ajuste lineal:
+
+\begin{equation*}
+g_\text{exp} = \frac{e^{2 a}}{2}
+\end{equation*}
+
+Para determinar la velocidad del chorro de agua que sale del recipiente, se puede usar el sensor de fotopuerta de la siguiente manera:
+
+\begin{itemize}
+    \item \textbf{Con una fotopuerta:} Coloque la fotopuerta en la salida del orificio. El sensor detecta el paso del chorro y permite medir el tiempo $t$ que tarda en interrumpir el haz de luz. A partir de este tiempo y el diámetro del chorro, se puede calcular la velocidad promedio $v$:
+    \begin{equation*}
+        v = \frac{d}{t}
+    \end{equation*}
+    donde $d$ es el diámetro efectivo del chorro o la distancia de referencia que atraviesa la fotopuerta.
+    
+    \item \textbf{Con dos fotopuertas:} Si se colocan dos fotopuertas separadas una distancia conocida $L$, se puede medir el tiempo $\Delta t$ que tarda el chorro en ir de la primera a la segunda:
+    \begin{equation*}
+        v = \frac{L}{\Delta t}
+    \end{equation*}
+    Este método permite una medición más precisa y elimina la necesidad de estimar el diámetro del chorro.
+\end{itemize}
+
+\subsection{Materiales}
+\begin{itemize}
+    \item Recipiente con agua
+    \item Soporte para el recipiente
+    \item Fotopuerta y sensor Pasco Capstone
+    \item Computadora con Pasco Capstone
+    \item Regla o cinta métrica
+\end{itemize}
+
+\subsection{Procedimiento Experimental}
+\begin{enumerate}
+    \item Coloque el recipiente con agua sobre el soporte.
+    \item Configure la fotopuerta en el orificio de salida del líquido de forma que el chorro interrumpa el haz de luz al pasar.
+    \item Configure Capstone para medir el tiempo $\Delta t$ que tarda el chorro en pasar por la fotopuerta.
+    \item Abra el orificio a una altura $h_1$ y registre el tiempo $\Delta t_1$ de paso.
+    \item Repita para varias alturas del fluido $h_i$, tomando al menos 5–10 mediciones por altura para reducir error.
+    \item Calcule la velocidad de salida usando $v_i = d / \Delta t_i$, donde $d$ es el ancho del chorro (o el diámetro del haz de fotopuerta).
+    \item Finalmente, construya la tabla de logaritmos $\ln v_i$ y $\ln h_i$ para realizar el ajuste lineal.
+\end{enumerate}
+
+\subsection{Recolección de Datos}
+
+\begin{table}[H]
+    \centering
+    \caption{Recolección de datos: velocidad del chorro vs altura del fluido}
+    \label{tabla:torricelli}
+    \begin{tabular}{lcc|cc|c}
+        \hline
+        N$^\circ$ & $h$ (m) & $\delta h$ (m) & $t$ (s) & $\delta t$ (s) & $v$ (m/s)\\
+        \hline
+        1 & & & & & \\
+        2 & & & & & \\
+        3 & & & & & \\
+        4 & & & & & \\
+        5 & & & & & \\
+        6 & & & & & \\
+        7 & & & & & \\
+        8 & & & & & \\
+        9 & & & & & \\
+        10 & & & & & \\
+        \hline
+    \end{tabular}
+\end{table}
+
+
+\subsection{Análisis de Datos}
+\begin{enumerate}
+    \item Grafique $\ln v$ vs $\ln h$ y realice un ajuste lineal por mínimos cuadrados.
+    \item Determine la ordenada $a$ de la recta.
+    \begin{table*}[tbp]
+        \centering
+        \caption{Procesamiento de datos experimentales EXPERIENCIA B: Torricelli.}
+        \label{tabla:analisis_graficos_exp_b}
+        \begin{tabular}{lcccc|>{\columncolor[gray]{0.9}}r}
+            \hline
+            & $x$ & $y$ & $x*y$ & $x^2$ & $(y_i-b-ax_i)^2$\\
+            $N$ & $\log(h)$ & $\log(v)$ & $\log(h)\log(v)$ & $\log(h)^2$ & $(\log(v)-b-a\log(h))^2$\\
+            \hline
+            1 &  & & & & \\
+            2 &  & & & & \\
+            3 &  & & & & \\
+            4 &  & & & & \\
+            5 &  & & & & \\
+            6 &  & & & & \\
+            7 &  & & & & \\
+            8 &  & & & & \\
+            9 &  & & & & \\
+            10 & & & & & \\
+            \hline
+            $\sum$ & & & & & \\
+            \hline
+        \end{tabular}
+    \end{table*}
+
+    \item Calcule $g_\text{exp}$ usando:
+
+    \begin{equation*}
+    g_\text{exp} = \frac{e^{2 a}}{2}
+    \end{equation*}
+
+    \item Compare el valor experimental con el valor teórico de $g$.
+\end{enumerate}
+
+\subsection{Preguntas de Análisis}
+\begin{enumerate}
+    \item ¿El valor experimental de $g$ coincide con el teórico?  
+    \item ¿Qué ventajas ofrece la fotopuerta frente al método de cronometraje manual?  
+    \item ¿Cómo afecta la precisión del diámetro del chorro en la determinación de $v$ y $g$?  
+    \item ¿Por qué es útil linealizar la ecuación de Torricelli mediante logaritmos para aplicar mínimos cuadrados?  
+\end{enumerate}
+\section{CONCLUSIONES}
+Compare los resultados obtenidos con la teoría, evalúe la confiabilidad de los datos y comente mejoras posibles para futuras prácticas.
+
+\section{REFERENCIAS}
+\begin{itemize}
+    \item Serway, Física para Ciencias e Ingeniería
+    \item Tipler, Física
+    \item Artículos sobre método de mínimos cuadrados en física experimental
+\end{itemize}
+
+\section{APÉNDICES}
+Agregue aquí el código utilizado para su análisis de datos en Python.
+

@@ -1,0 +1,139 @@
+% ===============================
+% labtitle.sty — Portada con abstract y metadatos
+% ===============================
+
+\ProvidesPackage{labtitle}[2025/11/08 Portada, abstract e info de laboratorio]
+
+% --- Datos principales ---
+\providecommand{\labnumber}{}
+\providecommand{\labtitle}{}
+\providecommand{\labauthor}{}
+\providecommand{\labcourse}{}
+\providecommand{\labcodigo}{}
+\providecommand{\labinstitution}{}
+\providecommand{\labdate}{}
+\providecommand{\labdocente}{}
+\providecommand{\lababstract}{} % Resumen
+
+% --- Metadatos opcionales ---
+\providecommand{\labdoi}{}
+\providecommand{\labemail}{}
+\providecommand{\labreceived}{}
+\providecommand{\labaccepted}{}
+\providecommand{\labpublished}{}
+\providecommand{\lablicense}{}
+
+% --- Colores (si no están definidos globalmente) ---
+% \providecolor{labblue}{rgb}{0.0,0.2,0.4}
+
+% --- Fuente general para el bloque de info ---
+\newcommand{\labinfofont}{\sffamily\footnotesize}
+
+% --- Bloque de información post-abstract ---
+\newcommand{\labinfo}{
+  \vskip6pt
+  \labinfofont
+  % correo
+  \ifx\labemail\empty\else
+    \textcolor{DeepBlue}{\textbf{Contacto:}} \textit{\labemail}\par
+  \fi
+  % doi
+  \ifx\labdoi\empty\else
+    \textcolor{DeepBlue}{\textbf{DOI:}} \labdoi\par
+  \fi
+  % fechas
+  \ifx\labreceived\empty\else
+    \textcolor{DeepBlue}{\textbf{Recibido:}} \labreceived\hspace{1em}
+  \fi
+  \ifx\labaccepted\empty\else
+    \textcolor{DeepBlue}{\textbf{Aceptado:}} \labaccepted\hspace{1em}
+  \fi
+  \ifx\labpublished\empty\else
+    \textcolor{DeepBlue}{\textbf{Publicado:}} \labpublished\par
+  \fi
+  % licencia
+  \ifx\lablicense\empty\else
+    \vskip3pt
+    {\textcolor{DeepBlue}{\lablicense}\par}
+  \fi
+  % \vskip1pt
+  \rule{\textwidth}{0.4pt}
+  \vspace*{1.2em} 
+}
+
+
+
+% --- Encabezado institucional (texto + logo) ---
+\providecommand{\labheaderlogo}{}  % Ruta del logo
+\providecommand{\labfaculty}{}  % Texto a la izquierda
+\providecommand{\labschool}{}  % Ruta del logo
+
+\newcommand{\labheader}{
+  \noindent
+  \begin{minipage}[c]{0.64\textwidth}
+    \raggedright
+    {\sffamily\small\color{DeepBlue}\labfaculty
+    \par\vspace{1.5em}\textit{\labschool}}
+  \end{minipage}%
+  \hfill
+  \begin{minipage}[c]{0.35\textwidth}
+    \raggedleft
+    \ifx\labheaderlogo\empty
+      % no image if not defined
+    \else
+      \includegraphics[height=1.2cm]{\labheaderlogo}
+    \fi
+  \end{minipage}
+  \vspace{0.3em}
+  \par\noindent\rule{\textwidth}{0.4pt}\vspace{0.2em}
+}
+
+
+
+% --- Portada principal ---
+\newcommand{\labcover}{
+  \twocolumn[
+    \begin{@twocolumnfalse}
+      \vspace*{-3.3em}  % 🔹 Subir la portada sin afectar el footer
+
+      % ---------- Encabezado institucional ----------
+      \labheader
+
+      % ---------- Título principal ----------
+      \begin{flushleft}
+        {\sffamily\bfseries\fontsize{8}{14}\selectfont \labnumber\par\vskip8pt}
+        {\bfseries\color{DeepBlue}\sffamily\fontsize{18}{22}\selectfont \labtitle\par\vskip8pt}
+        {\bfseries\sffamily\fontsize{11}{12}\selectfont \labauthor\par\vskip8pt}
+        {\sffamily\fontsize{7}{8}\selectfont \labcodigo\par}
+        {\sffamily\fontsize{7}{8}\selectfont \labcourse\par\vskip8pt}
+        {\sffamily\fontsize{7}{8}\selectfont \labdocente\par}
+      \end{flushleft}
+
+      % ---------- Abstract ----------
+      \ifx\lababstract\empty\else
+        \vspace{0.3em}
+        {\color{labblue}\sffamily\bfseries\large Abstract\par\vspace{0.3em}}
+        {\sffamily\small \lababstract\par}
+      \fi
+
+      % ---------- Info post-abstract ----------
+      \labinfo
+    \end{@twocolumnfalse}
+  ]
+  \thispagestyle{firststyle}
+
+  % --- Reinicios ---
+  \setcounter{section}{0}
+  \setcounter{subsection}{0}
+  \setcounter{equation}{0}
+  \setcounter{figure}{0}
+  \setcounter{table}{0}
+
+  \renewcommand{\thesection}{\arabic{section}}
+  \renewcommand{\theequation}{\arabic{equation}}
+  \renewcommand{\thefigure}{\arabic{figure}}
+  \renewcommand{\thetable}{\arabic{table}}
+
+  % --- TOC ---
+  \addcontentsline{toc}{section}{\labnumber: \labtitle}
+}

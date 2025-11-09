@@ -1,0 +1,32 @@
+\ProvidesPackage{sections}[2025/11/02 Formato de secciones]
+
+\RequirePackage{titlesec}
+
+% Sección principal
+\titleformat{\section}
+  {\large\bfseries\sffamily\color{DeepBlue}}
+  {\thesection.}{0.5em}{}
+\titlespacing*{\section}{0pt}{1ex plus 0.2ex minus 0.2ex}{0.5ex}
+
+% Subsección
+\titleformat{\subsection}
+  {\normalsize\bfseries\sffamily\color{black}}
+  {\thesubsection.}{0.5em}{}
+\titlespacing*{\subsection}{0pt}{0.8ex plus 0.2ex minus 0.2ex}{0.3ex}
+
+% Subsubsección
+\titleformat{\subsubsection}
+  {\normalsize\bfseries\itshape\sffamily\color{black}}
+  {\thesubsubsection.}{0.5em}{}
+\titlespacing*{\subsubsection}{0pt}{0.6ex plus 0.1ex minus 0.1ex}{0.2ex}
+
+% Paragraphs
+\titleformat{\paragraph}[runin]
+  {\small\bfseries\sffamily\color{labgray}}
+  {}
+  {0em}{}
+\titlespacing*{\paragraph}{0pc}{1.5ex plus 2pt minus 1pt}{12pt}
+
+% Párrafos
+\setlength{\parskip}{0pt}
+\setlength{\parindent}{1em}

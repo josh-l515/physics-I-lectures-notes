@@ -1,3 +1,54 @@
-% Custom physics macros
-\newcommand{\Ek}{\frac{1}{2}mv^2}
-\newcommand{\force}{F = ma}
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{physics}[2025/11/02 Estilos principales del proyecto]
+
+
+\RequirePackage{geometry}
+\geometry{
+    left=0.5cm,
+    right=0.5cm,
+    top=1.5cm,
+    bottom=1.5cm,
+    headsep=0.75cm
+}
+
+\RequirePackage{float}  % permite [H] como opción de float
+\usepackage{stfloats}
+
+\usepackage{tikz}
+\usetikzlibrary{intersections}
+
+\usepackage[spanish]{babel}
+
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage[table]{xcolor} % permite usar \columncolor dentro de tablas
+\RequirePackage[switch]{lineno} % permite enumerar las lineas de texto
+\usepackage{ragged2e} % ya la tienes cargada
+\usepackage{paracol} % permite manipulacion de columnas
+
+\usepackage{cuted}  % para entornos de una columna en documentos de dos
+\usepackage{tcolorbox}
+
+
+% --- Tablas profesionales ---
+\usepackage{tabularx}     % tablas con ancho ajustable
+\usepackage{booktabs}     % mejores líneas (toprule, midrule, bottomrule)
+\usepackage{array}        % control avanzado de columnas
+\usepackage{colortbl}     % para colorear filas o columnas
+\usepackage{xcolor}       % colores personalizados (ya lo usas)
+
+
+\RequirePackage{config/fonts}
+\RequirePackage{config/colors}
+\RequirePackage{config/sections}
+\RequirePackage{config/geometry}
+\RequirePackage{config/lists}
+\RequirePackage{config/equations}
+\RequirePackage{config/captions}
+\RequirePackage{config/toc}
+\RequirePackage{config/envs}
+\RequirePackage{config/labtitle}
+\RequirePackage{config/labstyle}
+\RequirePackage{config/chaptercover}

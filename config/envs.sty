@@ -1,0 +1,127 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% envs.sty
+% Entornos personalizados para ejercicios y colores
+% Fecha: 2025/11/02
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{envs}[2025/11/02 Entornos y colores personalizados]
+
+% ---------- Paquetes necesarios ----------
+\RequirePackage{xparse}
+\RequirePackage{etoolbox}
+
+
+%----------------------------------------------------------
+% TAUENV-, INFO-, NOTE- ENVIRONMENTS
+%----------------------------------------------------------
+
+% % Tauenv
+% \newmdenv[
+%     backgroundcolor=BlueColor!22, 					
+%     linecolor=BlueColor!22,									
+%     linewidth=0.7pt,
+%     frametitle=\vskip0pt\bfseries,
+%     frametitlerule=false,
+%     frametitlefont=\color{BlueColor}\bfseries\sffamily,
+%     frametitlealignment=\raggedright,
+%     innertopmargin=3pt,
+%     innerbottommargin=6pt,
+%     innerleftmargin=6pt,
+%     innerrightmargin=6pt,
+%     font=\selectfont,
+%     fontcolor=BlueColor,									
+%     frametitleaboveskip=8pt,
+%     skipabove=10pt
+% ]{tauenv}
+%
+% %----------------------------------------------------------
+%
+% % Info
+% \newmdenv[
+%     backgroundcolor=BlueColor!22, 						
+%     linecolor=BlueColor!22,									
+%     linewidth=0.7pt,
+%     frametitle=\vskip0pt\bfseries\infolanguage,
+%     frametitlerule=false,
+%     frametitlefont=\color{BlueColor}\bfseries\sffamily,
+%     frametitlealignment=\raggedright,
+%     innertopmargin=3pt,
+%     innerbottommargin=6pt,
+%     innerleftmargin=6pt,
+%     innerrightmargin=6pt,
+%     font=\normalfont,
+%     fontcolor=BlueColor,									
+%     frametitleaboveskip=3pt,
+%     skipabove=10pt
+% ]{info}
+%
+% %----------------------------------------------------------
+%
+% % Note
+% \newmdenv[
+%     backgroundcolor=BlueColor!22, 						
+%     linecolor=taucolor!22,									
+%     linewidth=0.7pt,
+%     frametitle=\vskip0pt\bfseries\notelanguage,
+%     frametitlerule=false,
+%     frametitlefont=\color{BlueColor}\bfseries\sffamily,
+%     frametitlealignment=\raggedright,
+%     innertopmargin=3pt,
+%     innerbottommargin=6pt,
+%     innerleftmargin=6pt,
+%     innerrightmargin=6pt,
+%     font=\normalfont,
+%     fontcolor=BlueColor,									
+%     frametitleaboveskip=3pt,
+%     skipabove=10pt
+% ]{note}
+%
+% ---------- Contador de ejercicios ----------
+\newcounter{excercise}
+
+% ---------- Entorno "excercise" ----------
+\NewDocumentEnvironment{excercise}{O{} O{0.95\linewidth} O{} m m}
+{
+    \vspace{1em}
+    \refstepcounter{excercise}
+    \noindent
+    \ifstrempty{#1}
+    {
+        % Sin imagen
+        \begin{minipage}[b]{0.97\linewidth}
+            \textbf{Ejercicio \theexcercise–}%
+            \phantomsection\label{#4}~#5  % Etiqueta sin salto de línea
+
+            \ifstrempty{#3}{}{%
+                \vspace{-1em}
+                \begin{flushright}
+                    \textbf{Resp.(s):} \textbf{#3}
+                \end{flushright}
+            }
+        \end{minipage}
+    }
+    {
+        % Con imagen
+        \begin{minipage}[b]{0.45\linewidth}
+            \textbf{Ejercicio \theexcercise–}%
+            \phantomsection\label{#4}~#5
+
+            \ifstrempty{#3}{}{%
+                \begin{flushright}
+                    \textbf{Resp.(s):} \textbf{#3}
+                \end{flushright}
+            }
+        \end{minipage}
+        \hfill
+        \begin{minipage}[b]{0.55\linewidth}
+            \centering
+            \includegraphics[width=#2]{#1}
+        \end{minipage}
+    }
+    \vspace{0.4em}
+    \hrule
+}
+{}
+\endinput
+

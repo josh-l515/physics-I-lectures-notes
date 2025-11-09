@@ -1,0 +1,520 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Definir info del laboratorio
+%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\renewcommand{\labheaderlogo}{img/logo-lab.png}
+\renewcommand{\labfaculty}{Facultad de Ingeniería}
+\renewcommand{\labschool}{Escuela Profesional de Ingeniería de Minas - Filial Haquira}
+
+\renewcommand{\labnumber}{LABORATORIO N° 01 - \LaTeX}
+\renewcommand{\labtitle}{MEDICIÓN DE LA INCERTIDUMBRE EXPERIMENTAL}
+\renewcommand{\labauthor}{Apellidos y Nombres}
+\renewcommand{\labcourse}{\textbf{\textit{Curso:}} Física I - Unidad 1}
+\renewcommand{\labcodigo}{\textbf{\textit{Código:}} 182739}
+\renewcommand{\labinstitution}{Universidad Nacional Micaela Bastidas de Apurímac}
+\renewcommand{\labdate}{27 de Octubre del 2025}
+\renewcommand{\labdocente}{\textbf{DOCENTE:} HUALLPA AIMITUMA Josué David}
+\renewcommand{\lababstract}{
+    This should be informative and suitable for direct
+    inclusion in abstracting services as a self-contained
+    article. It should not exceed 200 words. It should
+    summarise the general scope and also state the main results
+    obtained, methods used, the value of the work and the
+    conclusions drawn. No figure numbers, table numbers,
+    references or displayed mathematical expressions should be
+    included. The abstract should be included in both the
+    Manuscript Central submission step (Step 1) and the
+    submitted paper.
+}
+
+\renewcommand{\labemail}{autor@unamba.edu.pe}
+\renewcommand{\labdoi}{10.1234/lab01}
+\renewcommand{\labreceived}{27 Oct 2025}
+\renewcommand{\labaccepted}{30 Oct 2025}
+\renewcommand{\labpublished}{5 Nov 2025}
+\renewcommand{\lablicense}{Licencia CC BY-NC-SA 4.0}
+
+\labcover
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Inicio del Docmento
+%%%%%%%5%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{OBJETIVOS}
+    \begin{enumerate}
+        \item Comprender la naturaleza de los errores experimentales y su influencia en los resultados de medición.
+        \item Distinguir entre mediciones directas e indirectas, identificando las fuentes principales de incertidumbre en cada caso.
+        \item Aplicar correctamente los métodos de estimación de incertidumbre absoluta, relativa y combinada.
+        \item Utilizar la propagación de incertidumbres para funciones de dos o más variables físicas.
+        \item Analizar experimentalmente la distribución estadística de un conjunto de mediciones repetidas.
+        \item Representar datos experimentales mediante tablas de frecuencias e histogramas.
+        \item Ajustar una distribución normal (de Gauss) a los resultados experimentales y comparar las probabilidades teóricas con los datos obtenidos.
+    \end{enumerate}
+
+\section{PRÁCTICA 01: MEDICIONES DIRECTAS E INCERTIDUMBRES INSTRUMENTALES}
+
+\subsection{Objetivos Específicos}
+    \begin{enumerate}
+        \item Reconocer los diferentes instrumentos de medición y sus respectivas precisiones.
+        \item Determinar la incertidumbre absoluta, relativa y relativa porcentual en mediciones directas.
+        \item Reportar correctamente los resultados experimentales con el número adecuado de cifras significativas.
+    \end{enumerate}
+
+\subsection{Fundamento Teórico}
+    En toda medición existe una \textbf{incertidumbre instrumental}, la cual depende de la mínima división del instrumento utilizado.  
+    Para una medición directa, la incertidumbre absoluta se aproxima al valor de la \emph{resolución del instrumento}:
+
+    \begin{equation}
+    \delta x = \text{resolución del instrumento}
+    \end{equation}
+
+    A partir de ella se define la \textbf{incertidumbre relativa} y la \textbf{incertidumbre relativa porcentual}:
+
+    \begin{equation}
+        \varepsilon = \frac{\delta x}{x}, \qquad \varepsilon_{\%} = \frac{\delta x}{x} \times 100\%
+    \end{equation}
+
+
+\subsection{Materiales}
+    \begin{itemize}
+        \item Tres balanzas digitales de diferentes rangos y resoluciones.
+        \item Tres probetas graduadas (10 mL, 50 mL, 250 mL).
+        \item Regla metálica (resolución 1 mm).
+        \item Calibrador Vernier (resolución 0.02 mm).
+        \item Cilindros metálicos o cuerpos sólidos regulares.
+        \item Agua destilada y pipeta o vaso de precipitados.
+    \end{itemize}
+
+\subsection{Procedimiento Experimental}
+
+\subsubsection{A. Medición de Masa con Diferentes Balanzas}
+
+    \begin{enumerate}
+        \item Seleccione un mismo cuerpo y mida su masa con cada una de las tres balanzas disponibles.  
+        \item  Anote la resolución de cada instrumento.
+        \item Calcule y reporte la incertidumbre absoluta, relativa y relativa porcentual de cada medición. 
+    \end{enumerate}
+
+
+    \begin{table}[htbp]
+        \captionsetup{justification=raggedright, singlelinecheck=false}
+        \caption{Medición de masa con diferentes balanzas}
+        \begin{tabularx}{\columnwidth}{lccc>{\centering\arraybackslash}Xc}
+            \toprule
+            \textbf{Balanza} & \textbf{Resolución} & \textbf{Masa (g)} &
+            $\boldsymbol{\delta m}$ (g) & $\boldsymbol{\varepsilon}$ &
+            $\boldsymbol{\varepsilon_{\%}}$ (\%) \\
+            \midrule
+            Balanza 1 &  &  &  &  &  \\
+            Balanza 2 &  &  &  &  &  \\
+            Balanza 3 &  &  &  &  &  \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+
+\subsubsection{B. Medición de Volumen de Agua con Diferentes Probetas}
+    \begin{enumerate}
+        \item Llene parcialmente cada probeta con agua hasta una marca visible. 
+        \item Registre el volumen indicado y la resolución de la escala de cada probeta.   
+        \item Calcule las incertidumbres correspondientes.
+    \end{enumerate}
+
+
+    \begin{table}[htbp]
+        \captionsetup{justification=raggedright, singlelinecheck=false}
+        \caption{Medición de volumen con probetas de diferentes capacidades}
+        \begin{tabularx}{\columnwidth}{lccc>{\centering\arraybackslash}Xc}
+            \toprule
+            \textbf{Probeta} & \textbf{Cap. (mL)} & \textbf{Res. (mL)} & 
+            $\boldsymbol{V}$ (mL) & $\boldsymbol{\varepsilon}$ & 
+            $\boldsymbol{\varepsilon_{\%}}$ (\%) \\
+            \midrule
+            1 & 50  &  &  &  &  \\
+            2 & 100  &  &  &  &  \\
+            3 & 250 &  &  &  &  \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+
+\subsubsection{C. Medición de Longitudes con Regla y Vernier}
+    \begin{enumerate}
+        \item  Mida el diámetro de un cilindro con una regla metálica y luego con un calibrador Vernier. 
+        \item Anote la resolución de ambos instrumentos y determine las incertidumbres. 
+    \end{enumerate}
+
+
+    \begin{table}[htbp]
+        \captionsetup{justification=raggedright, singlelinecheck=false}
+        \caption{Medición de diámetro con instrumentos de distinta precisión}
+        \begin{tabularx}{\columnwidth}{lccc>{\centering\arraybackslash}Xc}
+            \toprule
+            \textbf{Instrumento} & \textbf{Res. (mm)} & \textbf{d (mm)} & 
+            $\boldsymbol{\delta d}$ (mm) & $\boldsymbol{\varepsilon}$ & 
+            $\boldsymbol{\varepsilon_{\%}}$ (\%) \\
+            \midrule
+            Regla metálica &  &  &  &  &  \\
+            Vernier &  &  &  &  &  \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+
+
+\subsection{Preguntas de Análisis}
+    \begin{enumerate}
+        \item ¿Qué instrumento presenta mayor precisión en cada tipo de medición?  
+        \item ¿Cómo varía la incertidumbre relativa al utilizar instrumentos de distinta resolución?  
+        \item ¿Por qué es importante reportar siempre la incertidumbre junto con la magnitud medida?
+    \end{enumerate}
+
+\section{PRÁCTICA 02: PROPAGACIÓN DE INCERTIDUMBRES EN MEDICIONES INDIRECTAS}
+
+\subsection{Objetivos Específicos}
+    \begin{enumerate}
+        \item Aplicar la propagación de incertidumbres a funciones de dos y tres variables.
+        \item Comparar el criterio de suma absoluta (diferencial total — caso extremo) con la combinación por raíces de cuadrados (RMS) para errores independientes.
+        \item Identificar qué variables dominan la incertidumbre del resultado.
+    \end{enumerate}
+
+\subsection{Fundamento Teórico}
+
+    Cuando una magnitud $f$ depende de variables medidas $x, y, z, \dots$, cada una con su incertidumbre absoluta $\delta x, \delta y, \delta z, \dots$, la incertidumbre total en $f$ se obtiene propagando los efectos de todas ellas.
+
+    \begin{itemize}
+        \item \textbf{Diferencial total (suma absoluta, caso extremo):}
+        \begin{equation}
+        \delta f \approx \left|\frac{\partial f}{\partial x}\right|\delta x + \left|\frac{\partial f}{\partial y}\right|\delta y + \cdots
+        \end{equation}
+        Esta expresión da un límite superior de la incertidumbre, útil cuando los errores pueden sumarse en el mismo sentido.
+
+        \item \textbf{Combinación cuadrática (RMS, errores independientes):}
+        \begin{equation}
+        \delta f = \sqrt{\left(\frac{\partial f}{\partial x}\delta x\right)^{2} + \left(\frac{\partial f}{\partial y}\delta y\right)^{2} + \cdots}
+        \end{equation}
+        Es la forma más usada cuando los errores son aleatorios e independientes, ya que surge al combinar sus varianzas:
+        \begin{equation}
+        \mathrm{Var}(f) = \sum_i \left(\frac{\partial f}{\partial x_i}\right)^2 (\delta x_i)^2.
+        \end{equation}
+    \end{itemize}
+
+\subsection{Materiales}
+    \begin{itemize}
+        \item Regla metálica (resolución 1 mm).
+        \item Calibrador Vernier (resolución 0.02 mm).
+        \item Balanza digital (resolución 0.01 g).
+        \item Cilindros metálicos o plásticos de distintas dimensiones.
+    \end{itemize}
+
+\subsection{Procedimiento Experimental}
+
+\subsubsection{A. Volumen de un cilindro (2 variables)}
+
+    Se considera un cilindro de longitud $L$ y diámetro $d$. El volumen está dado por:
+    \begin{equation}
+    V(d,L)=\pi\frac{d^{2}}{4}\,L = \frac{\pi}{4} d^{2} L .
+    \end{equation}
+
+    \paragraph{Derivadas parciales}
+    \begin{equation}
+    \frac{\partial V}{\partial d} = \frac{\pi}{2}\, d \, L , \qquad
+    \frac{\partial V}{\partial L} = \frac{\pi}{4}\, d^{2}.
+    \end{equation}
+
+    \paragraph{Propagación — forma suma absoluta (diferencial total)}
+    \begin{equation}
+    \delta V_{\text{(suma)}} \approx 
+    \left|\frac{\partial V}{\partial d}\right|\delta d 
+    + \left|\frac{\partial V}{\partial L}\right|\delta L
+    = \frac{\pi}{2} d L\,\delta d + \frac{\pi}{4} d^{2} \delta L.
+    \end{equation}
+
+    \paragraph{Propagación — forma RMS (errores independientes)}
+    \begin{equation}
+        \begin{split}
+            \delta V_{\text{(RMS)}} &=
+            \sqrt{\left(\frac{\partial V}{\partial d}\delta d\right)^{1} 
+            + \left(\frac{\partial V}{\partial L}\delta L\right)^{1}}\\ 
+                                    &= \sqrt{\left(\frac{\pi}{1} d L\,\delta d\right)^{2} 
+            + \left(\frac{\pi}{3} d^{2}\,\delta L\right)^{2} }.
+        \end{split}
+    \end{equation}
+
+    \paragraph{Medición parámetros de volumen de un cilindro}
+    \begin{enumerate}
+        \item Mida el diámetro $d$ y la longitud $L$ del cilindro con los instrumentos disponibles.
+        \item Anote sus incertidumbres instrumentales $\delta d, \delta L$.
+        \item Calcule $V$ y sus incertidumbres $\delta V_{\text{(suma)}}$ y $\delta V_{\text{(RMS)}}$.
+        \item Reporte su medida.
+        \item Compare ambos resultados y comente qué interpretación física tiene cada uno.
+    \end{enumerate}
+
+
+    \begin{table}[htbp]
+        \captionsetup{justification=raggedright, singlelinecheck=false}
+        \caption{Cálculo del volumen e incertidumbre de un cilindro}
+        \begin{tabularx}{\columnwidth}{lccccc>{\centering\arraybackslash}X}
+            \toprule
+            \textbf{Inst.} & $\boldsymbol{d}$ (mm) & $\boldsymbol{\delta d}$ (mm) & 
+            $\boldsymbol{L}$ (mm) & $\boldsymbol{\delta L}$ (mm) & 
+            $\boldsymbol{V}$ (cm$^{3}$) & $\boldsymbol{\delta V}$ \\
+            \midrule
+            Vernier &  &  &  &  &  & \\
+            Regla &  &  &  &  &  & \\
+            Ver./Reg. &  &  &  &  & & \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+
+\subsubsection{B. Densidad de un cilindro (3 variables)}
+
+La densidad se define como:
+\begin{equation}
+\rho = \frac{m}{V},\qquad V=\frac{\pi}{4}d^{2}L,
+\end{equation}
+de modo que:
+\begin{equation}
+\rho(m,d,L)=\frac{4m}{\pi d^{2} L}.
+\end{equation}
+
+\paragraph{Derivadas parciales}
+\begin{equation}
+\frac{\partial \rho}{\partial m} = \frac{4}{\pi d^{2} L}, \qquad
+\frac{\partial \rho}{\partial d} = -\frac{8 m}{\pi d^{3} L}, \qquad
+\frac{\partial \rho}{\partial L} = -\frac{4 m}{\pi d^{2} L^{2}}.
+\end{equation}
+
+\paragraph{Propagación — forma suma absoluta}
+\begin{equation}
+\delta \rho_{\text{(suma)}} \approx
+\left|\frac{\partial \rho}{\partial m}\right|\delta m
++ \left|\frac{\partial \rho}{\partial d}\right|\delta d
++ \left|\frac{\partial \rho}{\partial L}\right|\delta L
+\end{equation}
+\begin{equation}
+= \frac{4}{\pi d^{2} L}\,\delta m
++ \frac{8 m}{\pi d^{3} L}\,\delta d
++ \frac{4 m}{\pi d^{2} L^{2}}\,\delta L.
+\end{equation}
+
+\paragraph{Propagación — forma RMS}
+\begin{equation}
+\delta \rho_{\text{(RMS)}} =
+\sqrt{\left(\frac{\partial \rho}{\partial m}\delta m\right)^{2}
++ \left(\frac{\partial \rho}{\partial d}\delta d\right)^{2}
++ \left(\frac{\partial \rho}{\partial L}\delta L\right)^{2}}
+\end{equation}
+\begin{equation}
+= \sqrt{ \left(\frac{4}{\pi d^{2} L}\delta m\right)^{2}
++ \left(\frac{8 m}{\pi d^{3} L}\delta d\right)^{2}
++ \left(\frac{4 m}{\pi d^{2} L^{2}}\delta L\right)^{2} }.
+\end{equation}
+
+\paragraph{Medición parámetros de la densidad de un cilindro}
+\begin{enumerate}
+    \item Mida la masa $m$, el diámetro $d$ y la longitud $L$ del cilindro (Para $d$, y $L$ utilize los datos obtenidos en la sección A.)
+    \item Determine las incertidumbres instrumentales $\delta m, \delta d, \delta L$.
+    \item Calcule $\rho$ y las incertidumbres $\delta \rho_{\text{(suma)}}$ y $\delta \rho_{\text{(RMS)}}$.
+    \item Reporte su medida
+    \item Analice cuál de las tres variables contribuye más a la incertidumbre total.
+\end{enumerate}
+
+
+    \begin{table}[htbp]
+        \captionsetup{justification=raggedright, singlelinecheck=false}
+        \caption{Cálculo de la densidad e incertidumbre de un cilindro}
+        \begin{tabularx}{\columnwidth}{ccccccX}
+            \toprule
+            $\boldsymbol{m}$ (g) & $\boldsymbol{\delta m}$ (g) & 
+            $\boldsymbol{d}$ (mm) & $\boldsymbol{\delta d}$ (mm) & 
+            $\boldsymbol{L}$ (mm) & $\boldsymbol{\delta L}$ (mm) & $\boldsymbol{ \rho}\ \rm{(gcm^3)}$  \\
+            \midrule
+            &  &  &  &  &  & \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+
+\subsection{Preguntas de Análisis}
+\begin{enumerate}
+    \item ¿Qué variable aporta más a la incertidumbre total en cada caso? Justifique algebraicamente y con un ejemplo numérico.
+    \item Compare las incertidumbres $\delta f$ obtenidas por la suma absoluta y por la forma RMS. ¿Cuál es más representativa para errores aleatorios?
+    \item Si una de las fuentes de error fuera sistemática (por ejemplo, una desviación en la balanza), ¿cuál método sería el más apropiado para estimar la incertidumbre total?
+\end{enumerate}
+
+
+\section{PRÁCTICA 03: INCERTIDUMBRE ESTADÍSTICA UNIVARIABLE}
+
+En esta práctica se estudiará el comportamiento estadístico de un conjunto grande de mediciones repetidas de una misma magnitud física. Se analizará la diferencia entre la incertidumbre tipo A (estadística) y tipo B (instrumental), y se aplicará la distribución normal de Gauss para interpretar los resultados experimentales.
+
+\subsection{Instrumento y procedimiento}
+
+Utilice una \textbf{balanza analítica} para medir la masa de un mismo cuerpo un mínimo de \textbf{100 veces}.  
+Cada medición debe realizarse bajo las mismas condiciones, asegurando que la balanza esté tarada y estable antes de cada lectura.  
+Anote los valores con cuatro cifras decimales y, al finalizar, reporte correctamente las incertidumbres.
+
+\subsection{Tabla de mediciones individuales}
+
+
+\begin{table*}[tbp]
+    \captionsetup{justification=raggedright, singlelinecheck=false}
+    \caption{Mediciones de masa individuales}
+    \centering
+    \setlength{\tabcolsep}{4.5pt}
+    \renewcommand{\arraystretch}{1.1}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}%
+        r>{\centering\arraybackslash}p{1.35cm}%
+        r>{\centering\arraybackslash}p{1.35cm}%
+        r>{\centering\arraybackslash}p{1.35cm}%
+        r>{\centering\arraybackslash}p{1.35cm}%
+        r>{\centering\arraybackslash}p{1.35cm}%
+        r>{\centering\arraybackslash}p{1.35cm}%
+        r>{\centering\arraybackslash}p{1.35cm}@{}}
+        \toprule
+        \textbf{N°} & $\mathbf{m_i}$ (g) &
+        \textbf{N°} & $\mathbf{m_i}$ (g) &
+        \textbf{N°} & $\mathbf{m_i}$ (g) &
+        \textbf{N°} & $\mathbf{m_i}$ (g) &
+        \textbf{N°} & $\mathbf{m_i}$ (g) &
+        \textbf{N°} & $\mathbf{m_i}$ (g) &
+        \textbf{N°} & $\mathbf{m_i}$ (g) \\
+        \midrule
+         1 &  & 15 &  & 29 &  & 43 &  & 57 &  & 71 &  & 85 &  \\
+         2 &  & 16 &  & 30 &  & 44 &  & 58 &  & 72 &  & 86 &  \\
+         3 &  & 17 &  & 31 &  & 45 &  & 59 &  & 73 &  & 87 &  \\
+         4 &  & 18 &  & 32 &  & 46 &  & 60 &  & 74 &  & 88 &  \\
+         5 &  & 19 &  & 33 &  & 47 &  & 61 &  & 75 &  & 89 &  \\
+         6 &  & 20 &  & 34 &  & 48 &  & 62 &  & 76 &  & 90 &  \\
+         7 &  & 21 &  & 35 &  & 49 &  & 63 &  & 77 &  & 91 &  \\
+         8 &  & 22 &  & 36 &  & 50 &  & 64 &  & 78 &  & 92 &  \\
+         9 &  & 23 &  & 37 &  & 51 &  & 65 &  & 79 &  & 93 &  \\
+        10 &  & 24 &  & 38 &  & 52 &  & 66 &  & 80 &  & 94 &  \\
+        11 &  & 25 &  & 39 &  & 53 &  & 67 &  & 81 &  & 95 &  \\
+        12 &  & 26 &  & 40 &  & 54 &  & 68 &  & 82 &  & 96 &  \\
+        13 &  & 27 &  & 41 &  & 55 &  & 69 &  & 83 &  & 97 &  \\
+        14 &  & 28 &  & 42 &  & 56 &  & 70 &  & 84 &  & 98 &  \\
+        \bottomrule
+    \end{tabular*}
+\end{table*}
+\subsection{Análisis de datos}
+
+\begin{enumerate}
+    \item Calcule el \textbf{valor más probable (media aritmética)} de todas las mediciones:
+    \begin{equation}
+    \bar{m} = \frac{1}{N}\sum_{i=1}^{N} m_i
+    \end{equation}
+
+    \item Calcule simultáneamente:
+    \begin{equation}
+    \sum_{i=1}^{N}(m_i - \bar{m}) \quad \text{y} \quad \sum_{i=1}^{N}(m_i - \bar{m})^2
+    \end{equation}
+    Reflexione:  
+    ¿Por qué la suma de las desviaciones simples es cercana a cero?  
+    ¿Por qué utilizamos las desviaciones al cuadrado y no al cubo o a la cuarta potencia para cuantificar la dispersión de los datos?
+
+    \item Determine la \textbf{varianza} y la \textbf{desviación estándar} (incertidumbre tipo A):
+    \begin{equation}
+    s^2 = \frac{1}{N - 1}\sum_{i=1}^{N}(m_i - \bar{m})^2 \quad ; \quad \sigma = \sqrt{s^2}
+    \end{equation}
+    Reporte el valor central más representativo de las mediciones, por ejemplo:
+    \begin{equation}
+    m_{55} = \bar{m} \pm \sigma
+    \end{equation}
+
+    \item Considere la \textbf{incertidumbre tipo B} correspondiente a la resolución de la balanza:
+    \begin{equation}
+    \delta_m = \text{resolución}
+    \end{equation}
+
+    \item Calcule el \textbf{error estándar de la media} (precisión de la media):
+    \begin{equation}
+    \xi = \frac{\sigma}{\sqrt{N}}
+    \end{equation}
+
+    \item Calcule la \textbf{incertidumbre total combinada} entre el error estándar y la incertidumbre instrumental:
+    \begin{equation}
+    \eta = \sqrt{\xi^2 + \delta_m^2}
+    \end{equation}
+
+    \item Reporte su valor final:
+    \begin{equation}
+    m = \bar{m} \pm \eta
+    \end{equation}
+
+    \item Construya la \textbf{tabla de frecuencias}.  
+    Determine primero:
+    \begin{equation}
+    k = 1 + 3.3 \log N
+    \end{equation}
+    \begin{equation}
+    h = \frac{m_{\max} - m_{\min}}{k}
+    \end{equation}
+    donde $k$ es el número de intervalos y $h$ la amplitud de cada intervalo.
+
+    Complete la siguiente tabla (mínimo 10 intervalos):
+
+
+    \begin{table}[H]
+        \captionsetup{justification=raggedright, singlelinecheck=false}
+        \caption{Distribución de frecuencias de masa}
+        \begin{tabularx}{\columnwidth}{XXc}
+            \toprule
+            \textbf{Int. (g)} & \textbf{Frecuencia} & \textbf{Frecuencia acumulada} \\
+            \midrule
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            &  &  \\
+            \bottomrule
+        \end{tabularx}
+    \end{table}
+
+
+    \item Dibuje el \textbf{histograma de frecuencias} y sobre él:
+    \begin{itemize}
+        \item Indique la media $\bar{m}$.
+        \item Marque los límites $\bar{m} \pm \sigma$, $\bar{m} \pm 2\sigma$ y $\bar{m} \pm 3\sigma$.
+        \item Superponga la \textbf{curva de Gauss}:
+        \begin{equation}
+        f(x) = \frac{1}{\sigma\sqrt{2\pi}} e^{-\frac{(x - \bar{m})^2}{2\sigma^2}}
+        \end{equation}
+    \end{itemize}
+
+    \item Verifique la \textbf{fórmula empírica de Gauss} para el \textbf{intervalo 4} de la tabla:
+    \begin{equation}
+    \Delta N = \frac{N}{\sigma\sqrt{\pi}} e^{-\frac{(\bar{m} - x_4)^2}{2\sigma^2}} \Delta x
+    \end{equation}
+    Compare $\Delta N$ teórico con el número experimental de observaciones en ese intervalo.
+
+    \item Con ayuda de la \textbf{tabla Z} de la distribución normal, calcule las siguientes probabilidades:
+    \begin{itemize}
+        \item $P(x < \bar{m} - 0.5\sigma)$, $P(x > \bar{m} + 0.5\sigma)$, $P(x < \bar{m})$
+        \item $P(\bar{m} - \sigma < x < \bar{m} + \sigma)$, $P(\bar{m} - 2\sigma < x < \bar{m} + 2\sigma)$, $P(\bar{m} - 3\sigma < x < \bar{m} + 3\sigma)$
+    \end{itemize}
+    Represente en un gráfico la curva de Gauss sombreando las áreas correspondientes a cada probabilidad calculada.
+\end{enumerate}
+
+
+\subsection{Conclusión}
+
+Comente la diferencia entre la dispersión de las mediciones ($\sigma$), la precisión de la media ($\xi$), y la incertidumbre total combinada ($\eta$).  
+Analice cómo influyen el número de mediciones y la resolución del instrumento en la confiabilidad del resultado final.
+
+\section{REFERENCIAS}
+Las referencias se cargan automáticamente una vez puestos en el archivo tau.bib y citadas previamente en el documento.
+%----------------------------------------------------------
+
+% \printbibliography
+%
+%----------------------------------------------------------
+\section{APENDICES}
+Agregue aquí el código utilizado para su análisis de datos en Python
+

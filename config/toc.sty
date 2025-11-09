@@ -1,0 +1,54 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% toc.sty - Table of Contents 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\ProvidesPackage{toc}[2025/11/02 TOC style]
+
+% Required
+\RequirePackage{titletoc}
+
+
+% Set margins for TOC
+\contentsmargin{0cm}
+\newlength{\tocsep} 
+\setlength{\tocsep}{1.5pc}
+
+% Depth of TOC
+\setcounter{tocdepth}{5} % section, subsection, subsubsection
+
+% Section entries
+\titlecontents{section}[\tocsep]
+    {\addvspace{6pt}\sffamily\bfseries\color{labblue}} % font style
+    {\contentslabel[\thecontentslabel]{\tocsep}}       % numbered format
+    {}
+    {\hfill\thecontentspage}                           % page number alignment
+    []
+
+% Subsection entries
+\titlecontents{subsection}[3pc]
+    {\addvspace{4pt}\sffamily\color{black}}
+    {\contentslabel[\thecontentslabel]{2.5pc}}
+    {}
+    {\titlerule*[.5pc]{.}\ \thecontentspage}           % dots to page
+    []
+
+
+\titlecontents{subsubsection}[4pc]
+    {\addvspace{1.5pt}\sffamily\color{labgray}} % formato del bloque
+    {\contentslabel[\thecontentslabel]{2.5pc}}  % etiqueta (número)
+    {}                                           % formato sin etiqueta
+    {\titlerule*[.5pc]{.}\ \thecontentspage}    % qué poner al final (página)
+    []   
+    % extra al final (ej. salto)
+\titlecontents{paragraph}[5pc]
+    {\footnotesize\sffamily\itshape\color{labgray}} % estilo itálico
+    {}
+    {}
+    {}
+    [ ]
+% Optionally add a TOC title in color and font style
+\renewcommand{\contentsname}{\sffamily\bfseries\color{labblue}Contents}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\endinput

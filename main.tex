@@ -1,17 +1,26 @@
-\documentclass[a4paper,10pt]{article}  % o book, report, etc.
-% If \includeonly is defined, only that file is compiled
-% It will be injected by the Makefile
-\input{preamble.tex}
-% \includeonly{sections/01_physics} % <-- This will be added by the Makefile
+% !TeX program = xelatex
+\documentclass[9pt,a4paper, twocolumn, twoside]{extarticle}
 
-% Local Variables:
-% TeX-master: "main"
-% End:
+% Paquetes
+\usepackage{physics}
 
 \begin{document}
-\include{cover.tex}
-\tableofcontents
 
-\include{sections/CHcovers/02_electrostatics.tex}
-\include{sections/01_electric-field.tex}
-\end{document}
+% Banner primera página
+\include{cover.tex}
+
+% \tableofcontents
+
+
+
+% Laboratorios
+\include{labs/01_incertidumbre-medida}
+\include{labs/02_ajuste-lineal}
+\include{labs/03_ajuste-polinomial}
+
+
+% Examenes
+
+
+\end{document} 
+

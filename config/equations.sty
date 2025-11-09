@@ -1,0 +1,16 @@
+\ProvidesPackage{equations}[2025/11/02 Espaciado de ecuaciones]
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{mathtools}
+
+% Espaciado compacto de ecuaciones
+\newlength{\eqskip}
+\setlength{\eqskip}{8pt}
+\expandafter\def\expandafter\normalsize\expandafter{%
+    \normalsize%
+    \setlength\abovedisplayskip{\eqskip}%
+    \setlength\belowdisplayskip{\eqskip}%
+    \setlength\abovedisplayshortskip{\eqskip-\baselineskip}%
+    \setlength\belowdisplayshortskip{\eqskip}%
+}

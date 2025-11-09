@@ -1,0 +1,126 @@
+
+% ======================================================
+% chaptercover.sty — Portadas por capítulo con TOC local y línea divisoria
+% ======================================================
+\ProvidesPackage{chaptercover}[2025/11/06 Portadas por capítulo con TOC local en una columna y línea divisoria]
+
+% ------------------------------------------------------
+% Paquetes requeridos
+% ------------------------------------------------------
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{xcolor}
+\RequirePackage{etoolbox}
+\RequirePackage{fontspec}
+\RequirePackage{titletoc}
+\RequirePackage{hyperref}
+\RequirePackage{tocloft}
+\RequirePackage{kvoptions}
+
+\usetikzlibrary{calc, positioning, backgrounds}
+
+% ------------------------------------------------------
+% Definición de claves
+% ------------------------------------------------------
+\SetupKeyvalOptions{family=cc, prefix=cc@}
+\define@key{cc}{number}{\def\cc@number{#1}}
+\define@key{cc}{title}{\def\cc@title{#1}}
+\define@key{cc}{image}{\def\cc@image{#1}}
+\define@key{cc}{imagehpos}{\def\cc@imagehpos{#1}} % 0=izquierda, 1=derecha
+\define@key{cc}{imagevpos}{\def\cc@imagevpos{#1}} % 0=arriba, 1=abajo
+\define@key{cc}{imageopacity}{\def\cc@imageopacity{#1}}
+\define@key{cc}{imageheight}{\def\cc@imageheight{#1}} % altura de la imagen
+
+% Valores por defecto
+\setkeys{cc}{imagehpos=0.5, imagevpos=0.5, imageopacity=0.15, imageheight=1.5\paperheight}
+
+% ------------------------------------------------------
+% Comando principal
+% ------------------------------------------------------
+\newcommand{\chaptercover}[1]{%
+  \begingroup
+  \setkeys{cc}{#1}
+  \onecolumn
+  \thispagestyle{empty}
+  \setlength{\parindent}{0pt}
+
+  % ----------------------------------------------------
+  % Fondo en minipage izquierdo con desplazamiento
+  % ----------------------------------------------------
+  \ifx\cc@image\empty\else
+    \begin{tikzpicture}[remember picture, overlay]
+      % área de recorte (minipage izquierdo)
+      \clip (current page.north west) rectangle
+            ($(current page.north west)+(0.35\paperwidth,-\paperheight)$);
+
+      % calcular desplazamiento horizontal
+      \pgfmathsetlengthmacro{\xshift}{\cc@imagehpos*\paperwidth - 0.35\paperwidth*\cc@imagehpos}
+      % calcular desplazamiento vertical
+      \pgfmathsetlengthmacro{\yshift}{-\cc@imagevpos*\cc@imageheight + 0.5*\paperheight}
+
+      \node[anchor=north west, inner sep=0pt, outer sep=0pt, opacity=\cc@imageopacity]
+        at ($ (current page.north west) - (\xshift,\yshift) $)
+        {\includegraphics[height=\cc@imageheight]{\cc@image}};
+    \end{tikzpicture}
+  \fi
+
+  % ----------------------------------------------------
+  % Línea vertical divisoria
+  % ----------------------------------------------------
+  \begin{tikzpicture}[remember picture, overlay]
+    \draw[line width=0.6pt, gray!60]
+      ($(current page.north west)+(0.35\paperwidth,0)$)
+      --
+      ($(current page.south west)+(0.35\paperwidth,0)$);
+  \end{tikzpicture}
+
+  % ----------------------------------------------------
+  % Minipages con contenido
+  % ----------------------------------------------------
+  \begin{minipage}[l]{0.35\textwidth}
+    \hfill
+  \end{minipage}
+  \hfill
+  \begin{minipage}[c]{0.6\textwidth}
+    \begin{flushleft}
+      \vspace*{3cm}
+
+      % ---------- Título del capítulo ----------
+      \begin{center}
+        {\rmfamily\bfseries
+            \fontsize{30}{50}\color{DeepBlue}\selectfont C A P Í T U L O
+          \hspace{0.2em}
+          \fontsize{90}{100}\selectfont \cc@number
+        }
+
+        \vspace{1cm}
+
+        {\rmfamily\bfseries
+        \fontsize{40}{60}\selectfont
+        \color{LightGray}
+        \cc@title}
+      \end{center}
+
+      \vspace{2.5cm}
+
+      % ---------- TOC local ----------
+      \renewcommand{\contentsname}{Contenido del capítulo}
+      \renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+      \hypersetup{linkcolor=blue}
+
+      {\small
+        \startcontents[chap]
+        \printcontents[chap]{}{1}{\setcounter{tocdepth}{1}}
+      }
+
+      \vspace*{\fill}
+    \end{flushleft}
+  \end{minipage}
+
+  \vspace*{\fill}
+
+  \newpage
+  \twocolumn
+  \endgroup
+}
+
