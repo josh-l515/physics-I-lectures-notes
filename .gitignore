@@ -1,12 +1,27 @@
+# ================================================
+#  LaTeX & GitHub Actions Project .gitignore
+#  Ignora archivos intermedios, temporales y de build
+#  pero conserva el PDF final en docs/main.pdf
+# ================================================
+
+# --------------------------------
+# Archivos PDF (ignorar todos excepto docs/main.pdf)
+# --------------------------------
 *.pdf
-*.aux
-*.log
-*.fls
-*.fdb_latexmk
-build/
+!docs/
 !docs/main.pdf
 
+# --------------------------------
+# Directorios de compilación y cache
+# --------------------------------
+build/
+latex.out/
+out/
+_cache/
+
+# --------------------------------
 # Archivos temporales de LaTeX
+# --------------------------------
 *.aux
 *.lof
 *.log
@@ -19,7 +34,9 @@ build/
 *.cb
 *.cb2
 
-# Archivos intermedios de latexmk y similares
+# --------------------------------
+# Archivos intermedios de latexmk
+# --------------------------------
 *.fdb_latexmk
 *.synctex
 *.synctex(busy)
@@ -27,7 +44,9 @@ build/
 *.synctex.gz(busy)
 *.pdfsync
 
-# Archivos de compilación
+# --------------------------------
+# Archivos de compilación alternativos
+# --------------------------------
 *.dvi
 *.xdv
 *.bbl
@@ -37,12 +56,9 @@ build/
 *.snm
 *.vrb
 
-# Archivos temporales de Beamer
-*.nav
-*.snm
-*.vrb
-
+# --------------------------------
 # Archivos generados por glossaries
+# --------------------------------
 *.acn
 *.acr
 *.alg
@@ -51,29 +67,51 @@ build/
 *.gls
 *.glsdefs
 
+# --------------------------------
 # Archivos generados por listings
+# --------------------------------
 *.lol
 
+# --------------------------------
 # Archivos de índice
+# --------------------------------
 *.idx
 *.ilg
 *.ind
 
-# Archivos de metadatos
-*.mw
+# --------------------------------
+# Archivos temporales de Beamer
+# --------------------------------
+*.nav
+*.snm
+*.vrb
 
-# Archivos de conversión
+# --------------------------------
+# Archivos de metadatos o conversiones
+# --------------------------------
+*.mw
 *.ps
 *.eps
 
-# PDF final si no quieres versionarlo
-# (comenta esta línea si quieres subir tus PDFs)
-*.pdf
-
-# Archivos de backup y temporales de editores
+# --------------------------------
+# Archivos de respaldo de editores
+# --------------------------------
 *~
 *.swp
 *.bak
 *.backup
 *.tmp
 *.temp
+
+# --------------------------------
+# Archivos del sistema operativo
+# --------------------------------
+.DS_Store
+Thumbs.db
+
+# --------------------------------
+# Archivos del entorno de desarrollo
+# --------------------------------
+.vscode/
+.idea/
+*.code-workspace
